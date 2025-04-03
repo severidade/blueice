@@ -42,18 +42,44 @@
 
     ```bash
     {
-    "extends": ["airbnb", "airbnb/hooks", "plugin:@typescript-eslint/recommended"],
+    "extends": [
+        "airbnb",
+        "airbnb/hooks",
+        "plugin:@typescript-eslint/recommended"
+    ],
     "parser": "@typescript-eslint/parser",
-    "plugins": ["@typescript-eslint"],
+    "plugins": [
+        "@typescript-eslint"
+    ],
     "env": {
         "browser": true,
         "es2021": true
     },
     "rules": {
-        "react/jsx-filename-extension": [1, { "extensions": [".jsx", ".tsx"] }],
-        "import/no-extraneous-dependencies": ["error", { "devDependencies": true }]
+        "react/jsx-filename-extension": [
+        1,
+        {
+            "extensions": [
+            ".jsx",
+            ".tsx"
+            ]
+        }
+        ],
+        "import/no-extraneous-dependencies": [
+        "error",
+        {
+            "devDependencies": true
+        }
+        ],
+        "react/react-in-jsx-scope": "off"
+    },
+    "settings": {
+        "react": {
+        "version": "detect"
+        }
     }
     }
+
 
     ```
 
