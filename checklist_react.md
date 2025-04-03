@@ -145,3 +145,22 @@ npm run lit
     });
     ```
 </details>
+
+<details>
+    <summary>Dependências básicas para usar Three.js no React</summary>
+
+- [ ] instalar.
+    ```bash
+    npm install three-stdlib
+    ```
+
+- [ ] Para que o Vite reconheça arquivos ```.glb```, é necessário adicionar a seguinte configuração ao arquivo ```vite.config.js```.
+    ```js
+        import { defineConfig } from 'vite';
+
+        export default defineConfig({
+        assetsInclude: ['**/*.glb'],
+        });
+    ```
+
+</details>
