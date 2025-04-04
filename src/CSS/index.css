@@ -1,0 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=Kalnia:wght@700&family=Lato:wght@300;400;900&display=swap');
+
+/* font-family: 'Kalnia', serif;
+font-family: 'Lato', sans-serif; */
+
+:root {
+  --color-text: #ffffff;
+  --color-bg: #58C0C7;
+
+  --default-radius: 5px;
+  --default-gap: 2rem;
+  --mobile-width: 90vw;
+  --desktop-width: 50vw;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  background: url("../assets/noise.webp") repeat, var(--color-bg);
+  font-family: 'Lato', sans-serif;
+  font-weight: 300;
+  color: var(--color-text);
+}
+
+main{
+  width: 100VW;
+  max-width: 100%;
+  min-height: 100vh;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  padding: 5vh 10px 0 10px;
+  overflow: hidden;
+}
