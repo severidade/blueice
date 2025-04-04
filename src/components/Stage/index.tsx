@@ -1,6 +1,5 @@
 /* eslint-disable react/no-unknown-property */
 /* eslint-disable react/react-in-jsx-scope */
-// import { Canvas, useFrame } from '@react-three/fiber';
 import { useEffect, useRef, Suspense } from 'react';
 import { Canvas } from '@react-three/fiber';
 import {
@@ -29,19 +28,6 @@ function Loader() {
   );
 }
 
-// Componente para o modelo 3D com animação
-// function Model() {
-//   const { scene } = useGLTF('/ice.glb');
-//   const modelRef = useRef(null);
-
-//   // useFrame(({ clock }) => {
-//   //   if (modelRef.current) {
-//   //     modelRef.current.rotation.y = clock.getElapsedTime();
-//   //   }
-//   // });
-
-//   return <primitive ref={modelRef} object={scene} scale={1} position={[0, 0, 0]} />;
-// }
 function Model() {
   const { scene } = useGLTF('/ice.glb');
   const modelRef = useRef(null);
