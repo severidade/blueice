@@ -6,7 +6,6 @@ import {
   useGLTF, OrbitControls, PerspectiveCamera, Environment,
   Html, useProgress,
 } from '@react-three/drei';
-import { TextureLoader } from 'three';
 import styles from './stage.module.css';
 
 // Componente de indicador de carregamento
