@@ -6,6 +6,7 @@ import {
   useGLTF, OrbitControls, PerspectiveCamera, Environment,
   Html, useProgress,
 } from '@react-three/drei';
+import { TextureLoader } from 'three';
 import styles from './stage.module.css';
 
 // Componente de indicador de carregamento
@@ -51,6 +52,9 @@ function Stage() {
 
   return (
     <div className={styles.stage}>
+      <div className={styles.background}>
+        <div className={styles.splash} />
+      </div>
       <Canvas shadows>
         <Suspense fallback={<Loader />}>
           <ambientLight intensity={0.4} />
