@@ -1,10 +1,12 @@
 import './App.css';
+import Stage from './components/Stage/index.tsx';
 
 function App() {
   return (
-    <>
-      Pagina
-    </>
+    <main>
+      <h1>Sorvete</h1>
+      <Stage />
+    </main>
   );
 }
 
