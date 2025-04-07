@@ -3,7 +3,7 @@ import Stage from './components/Stage/index.tsx';
 function App() {
   return (
     <main>
-      <h1>Sorvete</h1>
+      {/* <h1>NEW Flavor!</h1> */}
       <Stage />
     </main>
   );

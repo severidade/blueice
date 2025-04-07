@@ -1,11 +1,16 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable react/no-unknown-property */
 /* eslint-disable react/react-in-jsx-scope */
-import { useEffect, useRef, Suspense } from 'react';
+import {
+  useEffect, useRef, useState, Suspense,
+} from 'react';
 import { Canvas } from '@react-three/fiber';
 import {
   useGLTF, OrbitControls, PerspectiveCamera, Environment,
   Html, useProgress,
 } from '@react-three/drei';
+import PropTypes from 'prop-types';
+import { Object3D } from 'three';
 import styles from './stage.module.css';
 
 // Componente de indicador de carregamento
@@ -28,32 +33,54 @@ function Loader() {
   );
 }
 
-function Model() {
+interface ModelProps {
+  onLoaded: () => void;
+}
+
+function Model({ onLoaded }: ModelProps) {
   const { scene } = useGLTF('/ice.glb');
-  const modelRef = useRef(null);
+  const modelRef = useRef<Object3D>(null);
 
   useEffect(() => {
     if (modelRef.current) {
-      // Inclinar como se estivesse servindo de uma garrafa
-      modelRef.current.rotation.x = 20 * (Math.PI / 180); // Inclina para frente
-      modelRef.current.rotation.z = 10 * (Math.PI / 180); // Leve inclinação lateral
+      modelRef.current.rotation.x = 20 * (Math.PI / 180);
+      modelRef.current.rotation.z = 10 * (Math.PI / 180);
+
+      // Agora avisamos que o modelo foi carregado e montado
+      if (onLoaded) {
+        onLoaded();
+      }
     }
-  }, []);
+  }, [onLoaded]);
 
   return <primitive ref={modelRef} object={scene} scale={1} position={[0, 0, 0]} />;
 }
 
+Model.propTypes = {
+  onLoaded: PropTypes.func.isRequired,
+};
+
 useGLTF.preload('/ice.glb');
 
 function Stage() {
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  const handleModelLoaded = () => {
+    setIsLoaded(true);
+  };
+
   const maxVerticalAngle = (115 * Math.PI) / 180;
   const minVerticalAngle = (30 * Math.PI) / 180;
 
   return (
     <div className={styles.stage}>
-      <div className={styles.background}>
-        <div className={styles.splash} />
-      </div>
+      {isLoaded && (
+        <div className={styles.background}>
+          <div className={styles.splash} />
+          <h1>NEW</h1>
+          <h1>Gelato creamy and delicious</h1>
+        </div>
+      )}
       <Canvas shadows>
         <Suspense fallback={<Loader />}>
           <ambientLight intensity={0.4} />
@@ -61,7 +88,7 @@ function Stage() {
           <spotLight position={[0, 5, 2]} intensity={1} angle={-0.3} penumbra={20} castShadow />
           <Environment preset="sunset" />
           <PerspectiveCamera makeDefault position={[0, 0.5, 1]} />
-          <Model />
+          <Model onLoaded={handleModelLoaded} />
           <OrbitControls
             minDistance={0.7}
             maxDistance={1}
