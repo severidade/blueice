@@ -10,6 +10,27 @@
   }
 }
 
+/* Animação para o splash aparecer */
+@keyframes fadeInScale {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.5);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+/* Animação para as frutas aparecerem */
+@keyframes fadeInFruits {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
 
 .stage {
   width: 100vw;
@@ -86,7 +107,6 @@
   }
 }
 
-
 .fruits {
   width: 50vh;
   height: 50vh;
@@ -107,7 +127,12 @@
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  border: solid 1px tomato;
+  opacity: 0; /* Inicialmente escondido */
+}
+
+.animate_fruits {
+  animation: fadeInFruits 1s forwards ease-out;
+  animation-delay: 0.5s; /* Atrasa um pouco em relação ao splash */
 }
 
 .fruta01, .fruta02, .fruta03  {
@@ -118,39 +143,37 @@
 }
 
 .fruta01{
-  border: solid 1px violet;
   animation: pulse2 3s infinite ease-in-out;
 }
 
 .fruta02{
-  border: solid 1px gold;
   animation: pulse 3.2s infinite ease-in-out;
 }
 
 .fruta03{
-  border: solid 1px rgb(17, 0, 255);
   animation: pulse3 3s infinite ease-in-out;
-  
 }
 
 .container_splash{
   position: absolute;
-  transform: translate(-50%, -50%) rotate(0deg);
+  transform: translate(-50%, -50%) scale(0.5);
   height: 60vh;
   width: 70vw;
   left: 50%;
   top: 50%;
-
-
   mask-image: url('./img/splash_mobile.png');
   mask-repeat: no-repeat;
   mask-size: contain;
   mask-position: center;
-
   -webkit-mask-image: url('./img/splash_mobile.png');
   -webkit-mask-repeat: no-repeat;
   -webkit-mask-size: contain;
   -webkit-mask-position: center;
+  opacity: 0; /* Inicialmente escondido */
+}
+
+.animate_splash {
+  animation: fadeInScale 0.8s forwards ease-out;
 }
 
 .container_splash::after{
@@ -203,7 +226,6 @@
   background-color: var(--color-title);
   transition: width 0.3s ease;
 }
-
 
 /* @media only screen and (min-width: 1024px) {
   .stage {

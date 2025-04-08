@@ -12,7 +12,6 @@ import {
 import PropTypes from 'prop-types';
 import { Object3D } from 'three';
 import styles from './stage.module.css';
-
 import splash from './img/splash_mobile.png';
 import fruta01 from './img/esquerda_superior_02.png';
 import fruta02 from './img/direita_superior.png';
@@ -37,27 +36,22 @@ function Loader() {
     </Html>
   );
 }
-
 interface ModelProps {
   onLoaded: () => void;
 }
-
 function Model({ onLoaded }: ModelProps) {
   const { scene } = useGLTF('/ice.glb');
   const modelRef = useRef<Object3D>(null);
-
   useEffect(() => {
     if (modelRef.current) {
       modelRef.current.rotation.x = 20 * (Math.PI / 180);
       modelRef.current.rotation.z = 10 * (Math.PI / 180);
-
       // Agora avisamos que o modelo foi carregado e montado
       if (onLoaded) {
         onLoaded();
       }
     }
   }, [onLoaded]);
-
   return <primitive ref={modelRef} object={scene} scale={1} position={[0, 0, 0]} />;
 }
 
@@ -69,9 +63,14 @@ useGLTF.preload('/ice.glb');
 
 function Stage() {
   const [isLoaded, setIsLoaded] = useState(false);
+  const [showAnimation, setShowAnimation] = useState(false);
 
   const handleModelLoaded = () => {
     setIsLoaded(true);
+    // Adicionando um pequeno delay antes de mostrar o splash
+    setTimeout(() => {
+      setShowAnimation(true);
+    }, 300);
   };
 
   const maxVerticalAngle = (115 * Math.PI) / 180;
@@ -81,14 +80,14 @@ function Stage() {
     <div className={styles.stage}>
       {isLoaded && (
         <div className={styles.background}>
-          <div className={styles.splash} />
-          <figure className={styles.container_splash}>
+          {/* <div className={styles.splash} /> */}
+          <figure className={`${styles.container_splash} ${showAnimation ? styles.animate_splash : ''}`}>
             <img className={styles.water_splash} loading="eager" src={splash} alt="Explosão de água" />
           </figure>
-          <figure className={styles.container_fruits}>
-            <img className={styles.fruta01} loading="eager" src={fruta01} alt="Explosão de água" />
-            <img className={styles.fruta02} loading="eager" src={fruta02} alt="Explosão de água" />
-            <img className={styles.fruta03} loading="eager" src={fruta03} alt="Explosão de água" />
+          <figure className={`${styles.container_fruits} ${showAnimation ? styles.animate_fruits : ''}`}>
+            <img className={styles.fruta01} loading="eager" src={fruta01} alt="Imagem Fruta" />
+            <img className={styles.fruta02} loading="eager" src={fruta02} alt="Imagem Fruta" />
+            <img className={styles.fruta03} loading="eager" src={fruta03} alt="Imagem Fruta" />
           </figure>
           <div className={styles.fruits} />
           {/* <h1>NEW</h1>
@@ -117,5 +116,4 @@ function Stage() {
     </div>
   );
 }
-
 export default Stage;
