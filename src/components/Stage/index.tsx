@@ -83,8 +83,8 @@ function Stage() {
             <img className={styles.water_splash} loading="eager" src={splash} alt="Explosão de água" />
           </figure>
           <div className={styles.fruits} />
-          <h1>NEW</h1>
-          <h1>Gelato creamy and delicious</h1>
+          {/* <h1>NEW</h1>
+          <h1>Gelato creamy and delicious</h1> */}
         </div>
       )}
       <Canvas shadows>
