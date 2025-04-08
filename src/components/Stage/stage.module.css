@@ -10,11 +10,19 @@
   }
 }
 
-/* Animação para o splash aparecer */
+/* Animação para o splash aparecer com transição de opacidade mais lenta */
 @keyframes fadeInScale {
   0% {
     opacity: 0;
     transform: translate(-50%, -50%) scale(0.5);
+  }
+  40% {
+    opacity: 0.3; /* Aumentando a opacidade mais gradualmente */
+    transform: translate(-50%, -50%) scale(0.7);
+  }
+  70% {
+    opacity: 0.7; /* Transição mais suave */
+    transform: translate(-50%, -50%) scale(0.9);
   }
   100% {
     opacity: 1;
@@ -22,44 +30,98 @@
   }
 }
 
-/* Animação para as frutas aparecerem */
-@keyframes fadeInFruits {
+/* Animações para as frutas com transição de opacidade mais lenta */
+@keyframes fruta01Entrada {
   0% {
     opacity: 0;
+    transform: translate(-80%, -80%) scale(0.6) rotate(-15deg);
+  }
+  30% {
+    opacity: 0.2; /* Opacidade aumentando lentamente */
+    transform: translate(-70%, -70%) scale(0.7) rotate(-10deg);
+  }
+  60% {
+    opacity: 0.6; /* Opacidade aumentando lentamente */
+    transform: translate(-55%, -55%) scale(0.9) rotate(-5deg);
+  }
+  80% {
+    opacity: 0.9;
+    transform: translate(-45%, -45%) scale(1.1) rotate(5deg);
   }
   100% {
     opacity: 1;
+    transform: translate(-50%, -50%) scale(1) rotate(0deg);
   }
 }
 
-.stage {
-  width: 100vw;
-  height: 350px;
-  position: relative;
-  cursor: pointer;
-  margin-bottom: 10vh;
+@keyframes fruta02Entrada {
+  0% {
+    opacity: 0;
+    transform: translate(-10%, -80%) scale(0.7) rotate(20deg);
+  }
+  30% {
+    opacity: 0.2; /* Opacidade aumentando lentamente */
+    transform: translate(-20%, -70%) scale(0.8) rotate(15deg);
+  }
+  60% {
+    opacity: 0.6; /* Opacidade aumentando lentamente */
+    transform: translate(-40%, -55%) scale(0.9) rotate(5deg);
+  }
+  80% {
+    opacity: 0.9;
+    transform: translate(-55%, -45%) scale(1.15) rotate(-8deg);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1) rotate(0deg);
+  }
 }
 
-.stage::before{
-  content: "";
-  width: 59vh;
-  height: 100vh;
-  background: url(/src/components/Stage/img/grafismo.png) no-repeat center;
-  background-size: contain;
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  -webkit-transform: translate(-50%, -50%) rotate(90deg);
-  transform: translate(-50%, -50%) rotate(90deg);
-  z-index: -1;
-  mix-blend-mode: multiply;
-  opacity: 60%;
+@keyframes fruta03Entrada {
+  0% {
+    opacity: 0;
+    transform: translate(-30%, -10%) scale(0.5) rotate(-10deg);
+  }
+  30% {
+    opacity: 0.2; /* Opacidade aumentando lentamente */
+    transform: translate(-35%, -25%) scale(0.6) rotate(-7deg);
+  }
+  60% {
+    opacity: 0.6; /* Opacidade aumentando lentamente */
+    transform: translate(-45%, -40%) scale(0.8) rotate(-3deg);
+  }
+  85% {
+    opacity: 0.9;
+    transform: translate(-55%, -55%) scale(1.1) rotate(5deg);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1) rotate(0deg);
+  }
 }
 
-.background {
-  width: 100%;
-  height: 100%;
-  position: absolute;
+/* Nova animação para a quarta fruta com transição de opacidade mais lenta */
+@keyframes fruta04Entrada {
+  0% {
+    opacity: 0;
+    transform: translate(-80%, -20%) scale(0.4) rotate(25deg);
+  }
+  30% {
+    opacity: 0.2; /* Opacidade aumentando lentamente */
+    transform: translate(-70%, -30%) scale(0.5) rotate(20deg);
+  }
+  60% {
+    opacity: 0.6; /* Opacidade aumentando lentamente */
+    transform: translate(-60%, -40%) scale(0.8) rotate(10deg);
+  }
+  85% {
+    opacity: 0.9;
+    transform: translate(-45%, -55%) scale(1.2) rotate(-5deg);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1) rotate(0deg);
+  }
 }
 
 @keyframes pulse {
@@ -107,6 +169,52 @@
   }
 }
 
+/* Animação de pulso para a quarta fruta */
+@keyframes pulse4 {
+  0% {
+    transform: translate(-49%, -49%) scale(1) rotate(0deg);
+    opacity: 1;
+  }
+  50% {
+    transform: translate(-51%, -51%) scale(1.05) rotate(2deg);
+    /* opacity: 0.9; */
+  }
+  100% {
+    transform: translate(-49%, -49%) scale(1) rotate(0deg);
+    opacity: 1;
+  }
+}
+
+.stage {
+  width: 100vw;
+  height: 350px;
+  position: relative;
+  cursor: pointer;
+  margin-bottom: 10vh;
+}
+
+.stage::before{
+  content: "";
+  width: 59vh;
+  height: 100vh;
+  background: url(/src/components/Stage/img/grafismo.png) no-repeat center;
+  background-size: contain;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%) rotate(90deg);
+  transform: translate(-50%, -50%) rotate(90deg);
+  z-index: -1;
+  mix-blend-mode: multiply;
+  opacity: 60%;
+}
+
+.background {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+
 .fruits {
   width: 50vh;
   height: 50vh;
@@ -127,12 +235,6 @@
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  opacity: 0; /* Inicialmente escondido */
-}
-
-.animate_fruits {
-  animation: fadeInFruits 1s forwards ease-out;
-  animation-delay: 0.5s; /* Atrasa um pouco em relação ao splash */
 }
 
 .fruta01, .fruta02, .fruta03, .fruta04 {
@@ -140,22 +242,29 @@
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
+  opacity: 0; /* Inicialmente escondidas */
 }
 
-.fruta01{
-  animation: pulse2 3s infinite ease-in-out;
+/* Aplicando as animações quando as frutas estão visíveis - duração aumentada */
+.animate_fruits .fruta01 {
+  animation: fruta01Entrada 2s forwards ease-out, pulse2 3s infinite ease-in-out 2s;
+  animation-delay: 0.5s;
 }
 
-.fruta02{
-  animation: pulse 3.2s infinite ease-in-out;
+.animate_fruits .fruta02 {
+  animation: fruta02Entrada 2.2s forwards ease-out, pulse 3.2s infinite ease-in-out 2.2s;
+  animation-delay: 0.7s;
 }
 
-.fruta03{
-  animation: pulse3 3s infinite ease-in-out;
+.animate_fruits .fruta03 {
+  animation: fruta03Entrada 2.1s forwards ease-out, pulse3 3s infinite ease-in-out 2.1s;
+  animation-delay: 0.9s;
 }
 
-.fruta04{
-  animation: pulse 3.2s infinite ease-in-out;
+/* Animação para a quarta fruta */
+.animate_fruits .fruta04 {
+  animation: fruta04Entrada 2.3s forwards ease-out, pulse4 3.4s infinite ease-in-out 2.3s;
+  animation-delay: 0.6s;
 }
 
 .container_splash{
@@ -177,7 +286,7 @@
 }
 
 .animate_splash {
-  animation: fadeInScale 0.8s forwards ease-out;
+  animation: fadeInScale 1.5s forwards ease-out; /* Duração aumentada para transição mais suave */
 }
 
 .container_splash::after{
