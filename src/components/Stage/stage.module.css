@@ -16,13 +16,21 @@
     opacity: 0;
     transform: translate(-50%, -50%) scale(0.5);
   }
-  40% {
-    opacity: 0.3; /* Aumentando a opacidade mais gradualmente */
+  /* 40% {
+    opacity: 0.3;
     transform: translate(-50%, -50%) scale(0.7);
-  }
+  } */
   70% {
-    opacity: 0.7; /* Transição mais suave */
-    transform: translate(-50%, -50%) scale(0.9);
+    opacity: 0.7;
+    transform: translate(-50%, -50%) scale(1.1); /* Leve exagero para criar efeito elástico */
+  }
+  85% {
+    opacity: 0.9;
+    transform: translate(-50%, -50%) scale(0.95); /* Recuo após a expansão */
+  }
+  95% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1.02); /* Pequeno avanço final */
   }
   100% {
     opacity: 1;
@@ -288,6 +296,8 @@
 .animate_splash {
   animation: fadeInScale 1.5s forwards ease-out; /* Duração aumentada para transição mais suave */
 }
+
+
 
 .container_splash::after{
   content: "";
