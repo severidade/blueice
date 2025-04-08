@@ -12,8 +12,10 @@
 font-family: 'Lato', sans-serif; */
 
 :root {
-  --color-text: #ffffff;
-  --color-bg: #58C0C7;
+  --color-text: #FFEDDF;
+  /* --color-bg: #58C0C7; */
+
+  --color-bg: #AFE0CE;
   --color-base: #bdd0a0;
 
   --default-radius: 5px;

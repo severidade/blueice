@@ -13,6 +13,8 @@ import PropTypes from 'prop-types';
 import { Object3D } from 'three';
 import styles from './stage.module.css';
 
+import splash from './img/splash.png';
+
 // Componente de indicador de carregamento
 function Loader() {
   const { progress } = useProgress();
@@ -77,6 +79,10 @@ function Stage() {
       {isLoaded && (
         <div className={styles.background}>
           <div className={styles.splash} />
+          <figure className={styles.container_splash}>
+            <img className={styles.water_splash} loading="eager" src={splash} alt="Explosão de água" />
+          </figure>
+          <div className={styles.fruits} />
           <h1>NEW</h1>
           <h1>Gelato creamy and delicious</h1>
         </div>
