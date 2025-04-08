@@ -43,15 +43,45 @@
 
 @keyframes pulse {
   0% {
-    transform: translate(-50%, -50%) scale(1);
+    transform: translate(-50%, -50%) scale(1) rotate(0deg);
     opacity: 1;
   }
   50% {
-    transform: translate(-50%, -50%) scale(1.08);
-    opacity: 0.9;
+    transform: translate(-50%, -52%) scale(1.08) rotate(1deg);
+    /* opacity: 0.95; */
   }
   100% {
-    transform: translate(-50%, -50%) scale(1);
+    transform: translate(-50%, -50%) scale(1) rotate(0deg);
+    opacity: 1;
+  }
+}
+
+@keyframes pulse2 {
+  0% {
+    transform: translate(-51%, -49%) scale(1) rotate(0deg);
+    opacity: 1;
+  }
+  50% {
+    transform: translate(-52%, -50%) scale(1.07) rotate(-1deg);
+    /* opacity: 0.9; */
+  }
+  100% {
+    transform: translate(-51%, -49%) scale(1) rotate(0deg);
+    opacity: 1;
+  }
+}
+
+@keyframes pulse3 {
+  0% {
+    transform: translate(-49%, -51%) scale(1) rotate(0deg);
+    opacity: 1;
+  }
+  50% {
+    transform: translate(-48%, -50%) scale(1.06) rotate(0.5deg);
+    /* opacity: 0.85; */
+  }
+  100% {
+    transform: translate(-49%, -51%) scale(1) rotate(0deg);
     opacity: 1;
   }
 }
@@ -61,30 +91,63 @@
   width: 50vh;
   height: 50vh;
   /* mix-blend-mode: hard-light; */
-  background: url(./img/fruta.png) no-repeat;
+  /* background: url(./img/fruta.png) no-repeat; */
   background-size: contain;
   position: absolute;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  animation: pulse 2s infinite ease-in-out;
+  animation: pulse 3s infinite ease-in-out;
+}
+
+.container_fruits {
+  width: 50vh;
+  height: 50vh;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border: solid 1px tomato;
+}
+
+.fruta01, .fruta02, .fruta03  {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.fruta01{
+  border: solid 1px violet;
+  animation: pulse2 3s infinite ease-in-out;
+}
+
+.fruta02{
+  border: solid 1px gold;
+  animation: pulse 3.2s infinite ease-in-out;
+}
+
+.fruta03{
+  border: solid 1px rgb(17, 0, 255);
+  animation: pulse3 3s infinite ease-in-out;
+  
 }
 
 .container_splash{
   position: absolute;
-  transform: translate(-50%, -50%) rotate(90deg);
-  height: 100vw;
-  width: 60vh;
+  transform: translate(-50%, -50%) rotate(0deg);
+  height: 60vh;
+  width: 70vw;
   left: 50%;
   top: 50%;
 
 
-  mask-image: url('./img/splash.png');
+  mask-image: url('./img/splash_mobile.png');
   mask-repeat: no-repeat;
   mask-size: contain;
   mask-position: center;
 
-  -webkit-mask-image: url('./img/splash.png');
+  -webkit-mask-image: url('./img/splash_mobile.png');
   -webkit-mask-repeat: no-repeat;
   -webkit-mask-size: contain;
   -webkit-mask-position: center;

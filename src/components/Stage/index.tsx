@@ -13,7 +13,10 @@ import PropTypes from 'prop-types';
 import { Object3D } from 'three';
 import styles from './stage.module.css';
 
-import splash from './img/splash.png';
+import splash from './img/splash_mobile.png';
+import fruta01 from './img/esquerda_superior_02.png';
+import fruta02 from './img/direita_superior.png';
+import fruta03 from './img/direito_inferior_02.png';
 
 // Componente de indicador de carregamento
 function Loader() {
@@ -81,6 +84,11 @@ function Stage() {
           <div className={styles.splash} />
           <figure className={styles.container_splash}>
             <img className={styles.water_splash} loading="eager" src={splash} alt="Explosão de água" />
+          </figure>
+          <figure className={styles.container_fruits}>
+            <img className={styles.fruta01} loading="eager" src={fruta01} alt="Explosão de água" />
+            <img className={styles.fruta02} loading="eager" src={fruta02} alt="Explosão de água" />
+            <img className={styles.fruta03} loading="eager" src={fruta03} alt="Explosão de água" />
           </figure>
           <div className={styles.fruits} />
           {/* <h1>NEW</h1>
