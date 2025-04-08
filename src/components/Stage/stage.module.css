@@ -135,7 +135,7 @@
   animation-delay: 0.5s; /* Atrasa um pouco em relação ao splash */
 }
 
-.fruta01, .fruta02, .fruta03  {
+.fruta01, .fruta02, .fruta03, .fruta04 {
   position: absolute;
   left: 50%;
   top: 50%;
@@ -152,6 +152,10 @@
 
 .fruta03{
   animation: pulse3 3s infinite ease-in-out;
+}
+
+.fruta04{
+  animation: pulse 3.2s infinite ease-in-out;
 }
 
 .container_splash{
