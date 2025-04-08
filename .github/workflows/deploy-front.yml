@@ -13,12 +13,13 @@ jobs:
       - name: Setup node 
         uses: actions/setup-node@v3
         with:
-          node-version: 16.18.1
-      - run: npm run install:front 
-      - run: npm run build:front
-      - run: cp ./front-end/.htaccess ./front-end/build
+          node-version: v20.10.0
+      - run: npm install
+      - run: npm run build
+      - run: cp .htaccess ./dist
 
       # Deploy do front
+
       - name: Upload from public_html via FTP
         uses: airvzxf/ftp-deployment-action@latest
         with:
