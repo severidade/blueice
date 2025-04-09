@@ -61,25 +61,25 @@
 }
 
 /* Aplicando as animações quando as frutas estão visíveis - duração aumentada */
-.animate_fruits .fruta01 {
-  animation: fruta01Entrada 2s forwards ease-out, pulse2 3s infinite ease-in-out 2s;
-  animation-delay: 0.5s;
+.animate_fruits .fruta01 { 
+  animation: fruta01Entrada 1s ease-out 0.5s forwards, 
+             pulse2 3s ease-in-out 1.5s infinite; 
 }
 
 .animate_fruits .fruta02 {
-  animation: fruta02Entrada 2.2s forwards ease-out, pulse 3.2s infinite ease-in-out 2.2s;
-  animation-delay: 0.7s;
+  animation:  fruta02Entrada 2.2s ease-out 0.5s forwards, 
+              pulse 3.2s ease-in-out 2.7s infinite ;
 }
 
 .animate_fruits .fruta03 {
-  animation: fruta03Entrada 2.1s forwards ease-out, pulse3 3s infinite ease-in-out 2.1s;
-  animation-delay: 0.9s;
+  animation:  fruta03Entrada 1.1s ease-out 0.5s forwards,
+              pulse3 3s ease-in-out infinite 1.6s;
 }
 
 /* Animação para a quarta fruta */
 .animate_fruits .fruta04 {
-  animation: fruta04Entrada 2.3s forwards ease-out, pulse4 3.4s infinite ease-in-out 2.3s;
-  animation-delay: 0.6s;
+  animation:  fruta04Entrada 1.3s ease-out 0.5s forwards, 
+              pulse4 3.4s ease-in-out infinite  1.8s;
 }
 
 .container_splash{
