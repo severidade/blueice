@@ -91,7 +91,6 @@ function Stage() {
             <img className={styles.fruta03} loading="eager" src={fruta03} alt="Imagem Fruta" />
             <img className={styles.fruta04} loading="eager" src={fruta04} alt="Imagem Fruta" />
           </figure>
-          <div className={styles.fruits} />
           {/* <h1>NEW</h1>
           <h1>Gelato creamy and delicious</h1> */}
         </div>
