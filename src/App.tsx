@@ -1,4 +1,5 @@
 import Stage from './components/Stage/index.tsx';
+import video from './assets/video/26.webm';
 
 function App() {
   return (

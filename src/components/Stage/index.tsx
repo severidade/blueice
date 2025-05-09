@@ -11,12 +11,15 @@ import {
 } from '@react-three/drei';
 import PropTypes from 'prop-types';
 import { Object3D } from 'three';
+import VideoBg from '../VideoBg/index.tsx';
 import styles from './stage.module.css';
 import splash from './img/splash_mobile.png';
 import fruta01 from './img/esquerda_superior_02.png';
 import fruta02 from './img/direita_superior.png';
 import fruta03 from './img/direito_inferior_02.png';
 import fruta04 from './img/esquerdo_inferior.png';
+import video from '../../assets/video/26.webm';
+import grainTexture from '../../assets/texture/noise.png';
 
 // Componente de indicador de carregamento
 function Loader() {
@@ -91,6 +94,7 @@ function Stage() {
             <img className={styles.fruta03} loading="eager" src={fruta03} alt="Imagem Fruta" />
             <img className={styles.fruta04} loading="eager" src={fruta04} alt="Imagem Fruta" />
           </figure>
+          <VideoBg videoSrc={video} grainSrc={grainTexture} />
           {/* <h1>NEW</h1>
           <h1>Gelato creamy and delicious</h1> */}
         </div>
